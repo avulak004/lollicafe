@@ -1,26 +1,95 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* LolliCafe Primary Visual System */
+  --color-dark-espresso: #24140f;
+  --color-coffee-brown: #4a2618;
+  --color-warm-brown: #6b3821;
+  --color-terracotta: #b9552d;
+  --color-caramel: #d47a45;
+  --color-warm-cream: #f7efe3;
+  --color-ivory: #fff9f0;
+  --color-muted-green: #405548;
+  --color-text: #24140f;
+  --color-muted-text: #74665d;
+  --color-border-subtle: rgba(74, 38, 24, 0.1);
+  --color-border-dark: rgba(247, 239, 227, 0.12);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-espresso: var(--color-dark-espresso);
+  --color-coffee: var(--color-coffee-brown);
+  --color-warm-brown: var(--color-warm-brown);
+  --color-terracotta: var(--color-terracotta);
+  --color-caramel: var(--color-caramel);
+  --color-cream: var(--color-warm-cream);
+  --color-ivory: var(--color-ivory);
+  --color-sage: var(--color-muted-green);
+  --color-text-main: var(--color-text);
+  --color-text-muted: var(--color-muted-text);
+  --font-serif: var(--font-serif), Georgia, serif;
+  --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-warm-cream);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1, h2, .font-editorial {
+  font-family: var(--font-serif);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ede3d3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bfa993;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #967e67;
+}
+
+/* Navbar over Hero Blur */
+.nav-hero-blur {
+  background: rgba(36, 20, 15, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.nav-hero-scrolled {
+  background: rgba(36, 20, 15, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Subtle brand watermark */
+.bg-watermark {
+  position: relative;
+}
+
+.bg-watermark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#4a2618 0.65px, transparent 0.65px);
+  background-size: 20px 20px;
+  opacity: 0.04;
+  pointer-events: none;
 }
